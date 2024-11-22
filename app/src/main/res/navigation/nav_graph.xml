@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_user">
+
+    <fragment
+        android:id="@+id/fragment_user"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.AltasFragment"
+        android:label="fragmentUser">
+        <action
+            android:id="@+id/action_fragment_user_to_fragment_welcome"
+            app:destination="@id/fragment_welcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_welcome"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.FragmentWelcome"
+        android:label="fragmentWelcome">
+
+
+        <!--<argument
+            android:name="UserId"
+            app:argType="string" />-->
+    </fragment>
+</navigation>
+

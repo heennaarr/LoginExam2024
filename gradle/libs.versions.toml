@@ -3,7 +3,7 @@ agp = "8.6.1"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junitVersion = "5.8.1"
-testCoroutinesVersion = "1.7.2"
+testCoroutinesVersion = "1.7.3"
 appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
@@ -14,6 +14,7 @@ navigationComponent = "2.8.4"
 koinBom = "4.0.0"
 koin-annotations = "1.4.0"
 kspVersion = "2.0.21-1.0.26"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,4 +41,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationComponent" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+
 
