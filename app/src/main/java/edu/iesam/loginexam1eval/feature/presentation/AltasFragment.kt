@@ -29,7 +29,7 @@ class AltasFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        viewModel.loadUsers()
+        viewModel.loadUsers(binding.username.text.toString())
 
     }
 
@@ -49,12 +49,7 @@ class AltasFragment: Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, nameObserver)
     }
 
-    private fun bindData(users : List<User>) {
-        if(users.size == 0){
-            Log.d("@dev" , "save me! I have 0")
-        }else{
-            Log.d("@dev" , "There are more! Confirm that the name it's diferent")
-        }
+    private fun bindData(users : Boolean) {
 
         binding.action.setOnClickListener{
             Log.d("@dev" , binding.username.text.toString())

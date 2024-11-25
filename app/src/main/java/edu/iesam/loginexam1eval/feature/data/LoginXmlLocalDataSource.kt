@@ -50,9 +50,9 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
             gson.fromJson(user, User::class.java)
         }
     }
-    override fun findByUserName(userName: String): User?{
+    override fun findByUserName(userName: String): Boolean?{
         return sharedPref.getString(userName, null)?.let { user ->
-            gson.fromJson(user, User::class.java)
+            gson.fromJson(user, User::class.java) as Boolean?
         }
     }
 
