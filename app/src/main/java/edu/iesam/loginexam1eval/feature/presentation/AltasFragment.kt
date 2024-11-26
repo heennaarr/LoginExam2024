@@ -23,13 +23,20 @@ class AltasFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentUserBinding.inflate(inflater, container, false)
+
         return  binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        viewModel.loadUsers(binding.username.text.toString())
+        binding.action.setOnClickListener{
+            viewModel.loadUsers(
+                binding.username.text.toString(),
+                binding.password.text.toString()
+            )
+
+        }
 
     }
 
@@ -41,20 +48,16 @@ class AltasFragment: Fragment() {
     private fun setupObserver(){
         val nameObserver = Observer<UserViewModel.UiState> {
 
-           it.users?.let{
-               bindData(it)
-        }
+           if (it.users == true){
+
+               findNavController().navigate(AltasFragmentDirections.actionFragmentUserToFragmentWelcome())
+        }else{
+            Log.d("@dev" , "Ya existe un user con ese name")
+           }
 
     }
         viewModel.uiState.observe(viewLifecycleOwner, nameObserver)
     }
 
-    private fun bindData(users : Boolean) {
 
-        binding.action.setOnClickListener{
-            Log.d("@dev" , binding.username.text.toString())
-            Log.d("@dev" , binding.password.text.toString())
-            findNavController().navigate(AltasFragmentDirections.actionFragmentUserToFragmentWelcome())
-        }
-    }
 }

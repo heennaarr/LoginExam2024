@@ -15,12 +15,11 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
 
     private val gson = Gson()
 
-    override fun save(user: User) {
+     override fun save(user: User) {
         val editor = sharedPref.edit()
         editor.putString(user.id, gson.toJson(user))
         editor.putString(user.name, gson.toJson(user))
         editor.putString(user.password, gson.toJson(user))
-        editor.putString(user.reminderUser, gson.toJson(user))
         editor.apply()
     }
 
@@ -30,12 +29,11 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
             editor.putString(user.id, gson.toJson(user))
             editor.putString(user.name, gson.toJson(user))
             editor.putString(user.password, gson.toJson(user))
-            editor.putString(user.reminderUser, gson.toJson(user))
         }
         editor.apply()
     }
 
-    override fun findAll(): List<User>{
+     fun findAll(): List<User>{
         val users = ArrayList<User>()
         val mapUsers = sharedPref.all //as Map<String, String>
         mapUsers.values.forEach { jsonUser ->
@@ -45,12 +43,12 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
         return users
     }
 
-    fun findById(userId: String): User?{
+    override fun findById(userId: String): User?{
         return sharedPref.getString(userId, null)?.let { user ->
             gson.fromJson(user, User::class.java)
         }
     }
-    override fun findByUserName(userName: String): Boolean?{
+     fun findByUserName(userName: String): Boolean?{
         return sharedPref.getString(userName, null)?.let { user ->
             gson.fromJson(user, User::class.java) as Boolean?
         }
