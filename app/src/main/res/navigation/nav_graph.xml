@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_fragment_login_to_fragment_user"
             app:destination="@id/fragment_alta" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_welcome"
+            app:destination="@id/fragment_welcome" />
 
 
     </fragment>

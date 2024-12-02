@@ -3,7 +3,7 @@ package edu.iesam.loginexam1eval.feature.domain
 import org.koin.core.annotation.Single
 
 @Single
-class SetUsersUseCase(private val userRepository: UserRepository) {
+class GetUsersUseCase(private val userRepository: UserRepository) {
     operator fun invoke(username:String ,  password:String): Boolean{
         val user: User? = userRepository.findById(username)
         if(user == null && password != null){
