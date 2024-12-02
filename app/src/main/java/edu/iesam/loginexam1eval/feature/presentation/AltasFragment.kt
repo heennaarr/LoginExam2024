@@ -49,7 +49,7 @@ class AltasFragment: Fragment() {
 
            if (it.users == true){
 
-               findNavController().navigate(AltasFragmentDirections.actionFragmentUserToFragmentWelcome())
+               findNavController().navigate(AltasFragmentDirections.actionFragmentAltaToFragmentLogin())
         }else{
             Log.d("@dev" , "Ya existe un user con ese name")
            }
