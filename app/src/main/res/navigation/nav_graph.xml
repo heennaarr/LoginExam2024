@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_user">
+    app:startDestination="@id/fragment_login">
 
     <fragment
-        android:id="@+id/fragment_user"
+        android:id="@+id/fragment_altas"
         android:name="edu.iesam.loginexam1eval.feature.presentation.AltasFragment"
-        android:label="fragmentUser">
+        android:label="fragmentAltas">
         <action
             android:id="@+id/action_fragment_user_to_fragment_welcome"
             app:destination="@id/fragment_welcome" />
@@ -17,10 +17,16 @@
         android:name="edu.iesam.loginexam1eval.feature.presentation.FragmentWelcome"
         android:label="fragmentWelcome">
 
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.FragmentLogin"
+        android:label="fragmentLogin">
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_user"
+            app:destination="@id/fragment_altas" />
 
-        <!--<argument
-            android:name="UserId"
-            app:argType="string" />-->
+
     </fragment>
 </navigation>
 

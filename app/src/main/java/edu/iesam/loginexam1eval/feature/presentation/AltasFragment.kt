@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import edu.iesam.loginexam1eval.databinding.FragmentUserBinding
+import edu.iesam.loginexam1eval.databinding.FragmentAltasBinding
 import edu.iesam.loginexam1eval.feature.domain.User
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AltasFragment: Fragment() {
-    private var _binding: FragmentUserBinding? = null
+    private var _binding: FragmentAltasBinding? = null
     private val binding get() = _binding!!
     private val viewModel : UserViewModel by viewModel()
 
@@ -22,7 +22,7 @@ class AltasFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentUserBinding.inflate(inflater, container, false)
+        _binding = FragmentAltasBinding.inflate(inflater, container, false)
 
         return  binding.root
     }
