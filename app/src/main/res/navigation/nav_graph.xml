@@ -5,9 +5,9 @@
     app:startDestination="@id/fragment_login">
 
     <fragment
-        android:id="@+id/fragment_altas"
+        android:id="@+id/fragment_alta"
         android:name="edu.iesam.loginexam1eval.feature.presentation.AltasFragment"
-        android:label="fragmentAltas">
+        android:label="fragmentAlta">
         <action
             android:id="@+id/action_fragment_user_to_fragment_welcome"
             app:destination="@id/fragment_welcome" />
@@ -24,7 +24,7 @@
         android:label="fragmentLogin">
         <action
             android:id="@+id/action_fragment_login_to_fragment_user"
-            app:destination="@id/fragment_altas" />
+            app:destination="@id/fragment_alta" />
 
 
     </fragment>
