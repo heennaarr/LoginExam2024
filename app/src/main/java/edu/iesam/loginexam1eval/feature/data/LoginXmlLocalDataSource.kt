@@ -12,16 +12,33 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
     private val sharedPref = context.getSharedPreferences(
         "user-storage", Context.MODE_PRIVATE
     )
+    private val sharedPrefReminder = context.getSharedPreferences(
+        "user-storage-reminder", Context.MODE_PRIVATE
+    )
+
 
     private val gson = Gson()
+
+     override fun saveReminder(user: User) {
+        val editor = sharedPrefReminder.edit()
+        editor.putString(user.id, gson.toJson(user))
+
+        editor.apply()
+
+    }
+    override fun findReminder(username: String): User? {
+        return sharedPrefReminder.getString(username, null)?.let { user ->
+            gson.fromJson(user, User::class.java)
+        }
+    }
 
      override fun save(user: User) {
         val editor = sharedPref.edit()
         editor.putString(user.id, gson.toJson(user))
-        editor.putString(user.name, gson.toJson(user))
-        editor.putString(user.password, gson.toJson(user))
         editor.apply()
     }
+
+
 
     fun saveAll(users: List<User>) {
         val editor = sharedPref.edit()
