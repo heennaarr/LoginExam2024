@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_login">
+
+    <fragment
+        android:id="@+id/fragment_alta"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.AltasFragment"
+        android:label="fragmentAlta">
+        <action
+            android:id="@+id/action_fragment_user_to_fragment_welcome"
+            app:destination="@id/fragment_welcome" />
+        <action
+            android:id="@+id/action_fragment_alta_to_fragment_login"
+            app:destination="@id/fragment_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_welcome"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.FragmentWelcome"
+        android:label="fragmentWelcome">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.FragmentLogin"
+        android:label="fragmentLogin">
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_user"
+            app:destination="@id/fragment_alta" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_welcome"
+            app:destination="@id/fragment_welcome" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_bajas"
+            app:destination="@id/fragment_bajas" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_bajas"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.BajasFragment"
+        android:label="fragmentBajas">
+        <action
+            android:id="@+id/action_fragment_bajas_to_fragment_login"
+            app:destination="@id/fragment_login" />
+    </fragment>
+
+</navigation>
+
