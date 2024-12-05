@@ -23,7 +23,6 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        viewModel.getLogin()
         return  binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,32 +32,33 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             findNavController().navigate(FragmentLoginDirections.actionFragmentLoginToFragmentUser())
 
         }
-        binding.action.setOnClickListener{
+        binding.action.setOnClickListener {
             viewModel.loadUsers(
                 binding.username.text.toString(),
                 binding.password.text.toString()
             )
 
-        }
 
-        if(binding.reminder.isChecked){
-            viewModel.setLogin(
-                User(
-                    "1",
-                    binding.username.text.toString(),
-                    binding.password.text.toString()
+
+            if (binding.reminder.isChecked) {
+                viewModel.setLogin(
+                    User(
+                        "1",
+                        binding.username.text.toString(),
+                        binding.password.text.toString()
+                    )
                 )
-            )
-        }else{
-            viewModel.setLogin(null)
+            } else {
+                viewModel.setLogin(null)
+            }
+
+
         }
-
-
-
 
     }
 
     private fun setupObserver(){
+        viewModel.getLogin()
         val nameObserver = Observer<LoginViewModel.UiState> {
             if (it.users == true){
                     findNavController().navigate(FragmentLoginDirections.actionFragmentLoginToFragmentWelcome())
