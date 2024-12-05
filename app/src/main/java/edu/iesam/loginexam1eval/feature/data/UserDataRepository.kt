@@ -22,4 +22,9 @@ class UserDataRepository(
     override fun saveReminder(user: User?) {
         return local.saveReminder(user)
     }
+
+    override fun deleteUser(user:User){
+        return local.deleteUser(user)
+
+    }
 }

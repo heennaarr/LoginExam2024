@@ -31,8 +31,21 @@
         <action
             android:id="@+id/action_fragment_login_to_fragment_welcome"
             app:destination="@id/fragment_welcome" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_bajas"
+            app:destination="@id/fragment_bajas" />
 
 
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_bajas"
+        android:name="edu.iesam.loginexam1eval.feature.presentation.BajasFragment"
+        android:label="fragmentBajas">
+        <action
+            android:id="@+id/action_fragment_bajas_to_fragment_login"
+            app:destination="@id/fragment_login" />
+    </fragment>
+
 </navigation>
 

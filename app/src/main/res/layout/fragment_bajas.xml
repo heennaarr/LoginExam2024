@@ -18,36 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <CheckBox
-        android:id="@+id/reminder"
-        android:text="Recordar"
-        android:layout_margin="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/action"
         android:layout_margin="16dp"
-        android:text="Aceptar"
+        android:text="Delete user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/actionAltas"
-        android:layout_margin="16dp"
-        android:text="Altas"
-        >
 
 
-    </Button>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/actionBajas"
-        android:layout_margin="16dp"
-        android:text="Bajas"
-        >
-    </Button>
 
 </LinearLayout>

@@ -32,6 +32,9 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             findNavController().navigate(FragmentLoginDirections.actionFragmentLoginToFragmentUser())
 
         }
+        binding.actionBajas.setOnClickListener{
+            findNavController().navigate(FragmentLoginDirections.actionFragmentLoginToFragmentBajas())
+        }
         binding.action.setOnClickListener {
             viewModel.loadUsers(
                 binding.username.text.toString(),

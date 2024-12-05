@@ -5,5 +5,7 @@ interface UserRepository {
     fun save( user : User)
     fun findReminder() : User?
     fun saveReminder(user: User?)
+    fun deleteUser(user: User)
+
 
 }

@@ -28,6 +28,9 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
         editor.apply()
 
     }
+
+
+
     override fun findReminder(): User? {
         return sharedPrefReminder.getString("1", null)?.let { user ->
             gson.fromJson(user, User::class.java)
@@ -67,17 +70,13 @@ class LoginXmlLocalDataSource (private val context: Context) : UserRepository {
             gson.fromJson(user, User::class.java)
         }
     }
-     fun findByUserName(userName: String): Boolean?{
-        return sharedPref.getString(userName, null)?.let { user ->
-            gson.fromJson(user, User::class.java) as Boolean?
-        }
-    }
+
 
     fun delete() {
         sharedPref.edit().clear().apply()
     }
 
-    fun deleteById(movieId: String){
-        sharedPref.edit().remove(movieId).commit()
+     override fun deleteUser(user: User){
+        sharedPref.edit().remove(user.id).commit()
     }
 }
