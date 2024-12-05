@@ -9,13 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import edu.iesam.loginexam1eval.R
 import edu.iesam.loginexam1eval.databinding.FragmentLoginBinding
+import edu.iesam.loginexam1eval.feature.domain.User
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FragmentLogin : Fragment(R.layout.fragment_login) {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private val viewModel : LoginViewModel by viewModel()
-    private val viewModelReminder : ReminderViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +23,7 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        viewModel.getLogin()
         return  binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,10 +40,20 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             )
 
         }
-        viewModelReminder.loadUsersReminder(
-            binding.username.text.toString(),
-            binding.password.text.toString(),
-        )
+
+        if(binding.reminder.isChecked){
+            viewModel.setLogin(
+                User(
+                    "1",
+                    binding.username.text.toString(),
+                    binding.password.text.toString()
+                )
+            )
+        }else{
+            viewModel.setLogin(null)
+        }
+
+
 
 
     }
@@ -51,6 +62,13 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         val nameObserver = Observer<LoginViewModel.UiState> {
             if (it.users == true){
                     findNavController().navigate(FragmentLoginDirections.actionFragmentLoginToFragmentWelcome())
+            }
+            it.userReminder?.let{
+                binding.apply {
+                    reminder.isChecked = true
+                    username.setText(it.name)
+                    password.setText(it.password)
+                }
             }
 
         }

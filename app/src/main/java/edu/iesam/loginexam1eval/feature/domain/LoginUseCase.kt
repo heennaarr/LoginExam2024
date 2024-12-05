@@ -10,7 +10,7 @@ class LoginUseCase(private val userRepository: UserRepository) {
         val user: User? = userRepository.findById(username)
 
         return if (user != null && user.password == password) {
-            true
+           true
         } else {
             false
         }

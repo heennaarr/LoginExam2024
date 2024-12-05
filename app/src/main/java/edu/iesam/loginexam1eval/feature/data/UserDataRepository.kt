@@ -14,4 +14,12 @@ class UserDataRepository(
     override fun save(user:User) {
         return local.save(user)
     }
+
+    override fun findReminder(): User? {
+        return local.findReminder()
+    }
+
+    override fun saveReminder(user: User?) {
+        return local.saveReminder(user)
+    }
 }
